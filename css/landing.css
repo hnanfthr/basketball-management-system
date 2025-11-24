@@ -1,0 +1,404 @@
+/* ====================================================== */
+/* == STYLING KHUSUS LANDING PAGE (index.html) == */
+/* ====================================================== */
+
+.landing-body {
+    background-color: var(--bg-light);
+}
+
+/* --- HEADER (DESKTOP DEFAULT) --- */
+.public-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Sticky header agar modern */
+    top: 0;
+    z-index: 100;
+}
+.logo-container-public {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-public {
+    max-width: 50px;
+    height: auto;
+}
+.logo-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+.top-login-button {
+    padding: 8px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.top-login-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* --- KONTEN UTAMA (DESKTOP DEFAULT) --- */
+.landing-main {
+    max-width: 1100px; /* Sedikit lebih lebar */
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    animation: mainFadeIn 0.6s ease-out forwards;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0;
+}
+.hero-section h1 {
+    font-size: 3em;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.hero-section h2 {
+    font-size: 2em;
+    font-weight: 300;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+}
+.hero-section p {
+    font-size: 1.3em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.hero-button {
+    padding: 15px 40px;
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    text-decoration: none;
+    border: none;
+    border-radius: 50px; /* Tombol bulat modern */
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(var(--accent-orange), 0.4);
+}
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--accent-orange), 0.6);
+}
+
+/* Section Titles */
+.landing-section {
+    padding: 60px 0;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+.section-title {
+    font-size: 2.5em;
+    color: var(--dark-blue);
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+/* Garis bawah judul stylish */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-orange);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* === STRUKTUR ORGANISASI (DESKTOP: GRID KARTU) === */
+.struktur-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom Tetap */
+    gap: 30px;
+    padding: 10px;
+}
+.struktur-item {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Shadow lembut */
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+.struktur-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.struktur-item img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--bg-grey);
+    margin-bottom: 20px;
+}
+.struktur-item h3 {
+    font-size: 1.3em;
+    color: var(--dark-blue);
+    margin: 0 0 5px 0;
+}
+.struktur-item p {
+    font-size: 1em;
+    color: var(--primary-blue);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* === GALERI (DESKTOP: GRID MASONRY STYLE) === */
+.galeri-landing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+    gap: 25px;
+}
+.galeri-landing-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+}
+.galeri-landing-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.galeri-landing-item:hover img {
+    transform: scale(1.1); /* Zoom effect */
+}
+.galeri-judul {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    font-weight: 600;
+    opacity: 0; /* Sembunyi dulu */
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+.galeri-landing-item:hover .galeri-judul {
+    opacity: 1; /* Muncul saat hover */
+    transform: translateY(0);
+}
+
+/* === CURRENT ROSTERS (DESKTOP: LIST BOX) === */
+.anggota-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+.anggota-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    transition: all 0.2s;
+}
+.anggota-item-clickable:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+/* Jadwal Desktop */
+.jadwal-landing-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+.jadwal-landing-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border-top: 5px solid var(--primary-blue); /* Aksen di atas */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Footer & Info */
+.info-section { margin-top: 40px; padding: 40px; background-color: #fff; border-radius: 12px; text-align: center; border: 1px solid #eee;}
+.landing-footer { padding: 30px; color: #888; font-size: 0.9em; text-align: center; }
+
+
+/* ========================================================================== */
+/* =================== TAMPILAN MOBILE (APP / FEED STYLE) =================== */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* Reset Container: Full width tanpa padding samping */
+    .landing-main {
+        padding: 0; /* Hilangkan padding container utama */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Header Mobile: Minimalis */
+    .public-header {
+        padding: 10px 15px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .logo-text { font-size: 1.1em; }
+    .top-login-button { padding: 6px 15px; font-size: 0.9em; }
+
+    /* Hero Section Mobile */
+    .hero-section {
+        padding: 40px 20px;
+        text-align: left; /* Ubah jadi rata kiri agar lebih modern di HP */
+    }
+    .hero-section h1 { font-size: 2.2em; line-height: 1.2; }
+    .hero-section h2 { font-size: 1.4em; margin-bottom: 15px; }
+    .hero-section p { font-size: 1em; margin-bottom: 25px; }
+    .hero-buttons-container { justify-content: flex-start; } /* Tombol rata kiri */
+
+    /* Section Titles Mobile */
+    .landing-section {
+        padding: 20px 0; /* Kurangi padding vertikal */
+        border-top: 10px solid var(--bg-grey); /* Pemisah tebal seperti Facebook/IG */
+    }
+    .section-title {
+        font-size: 1.5em;
+        text-align: left;
+        padding-left: 15px; /* Padding kiri seperti judul section di App */
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+    .section-title::after { margin: 5px 0 0 0; /* Garis bawah rata kiri */ }
+
+    /* --- TRANSFORMASI STRUKTUR ORGANISASI (GRID LAYOUT - RAPIKAN JARAK) --- */
+    .struktur-container {
+        display: block;
+        padding: 0;
+        gap: 0;
+    }
+    
+    .struktur-item {
+        /* Gunakan CSS Grid untuk layout baris yang presisi */
+        display: grid;
+        grid-template-columns: 80px 1fr; /* Kiri: Foto(80px), Kanan: Teks */
+        grid-template-rows: auto auto;
+        column-gap: 15px;
+        
+        padding: 15px;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        text-align: left; /* Paksa teks rata kiri */
+        align-items: center; /* Tengah vertikal */
+    }
+    .struktur-item:hover { transform: none; }
+
+    .struktur-item img {
+        grid-row: 1 / span 2; /* Foto menuhin 2 baris teks */
+        width: 70px;
+        height: 70px;
+        margin: 0; /* Hapus margin bawah default */
+        border-width: 2px;
+        align-self: center;
+    }
+
+    .struktur-item h3 {
+        grid-column: 2;
+        grid-row: 1;
+        font-size: 1.1em;
+        margin: 0 0 3px 0; /* Jarak kecil ke jabatan */
+        align-self: end; /* Tempel ke bawah baris atas */
+    }
+
+    .struktur-item p {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 0.9em;
+        color: #777;
+        margin: 0;
+        align-self: start; /* Tempel ke atas baris bawah */
+    }
+
+    /* --- TRANSFORMASI GALERI (INSTAGRAM FEED STYLE) --- */
+    .galeri-landing-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Jarak antar postingan */
+        background-color: var(--bg-grey); /* Background abu-abu di belakang feed */
+    }
+    .galeri-landing-item {
+        border-radius: 0; /* Kotak penuh */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        background-color: #fff;
+        margin-bottom: 0;
+        aspect-ratio: auto; /* Reset rasio */
+    }
+    .galeri-landing-item img {
+        height: auto;
+        aspect-ratio: 4/3; /* Atau 1/1 untuk kotak */
+        width: 100%;
+    }
+    .galeri-judul {
+        position: relative; /* Kembalikan ke posisi normal (di bawah foto) */
+        opacity: 1;
+        transform: none;
+        background: #fff;
+        color: #333;
+        padding: 12px 15px;
+        font-size: 1em;
+        font-weight: 600;
+    }
+
+    /* --- TRANSFORMASI ROSTER (LIST STYLE) --- */
+    .anggota-container {
+        grid-template-columns: 1fr; /* 1 Kolom */
+        gap: 0; /* Rapatkan */
+        padding: 0 15px;
+    }
+    .anggota-item {
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 15px 5px;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .anggota-nama { font-size: 1em; margin: 0; }
+    .anggota-kelas { font-size: 0.9em; background: #eee; padding: 3px 8px; border-radius: 4px; }
+
+    /* Jadwal Mobile */
+    .jadwal-landing-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .jadwal-landing-item {
+        margin-bottom: 0;
+    }
+}

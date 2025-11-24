@@ -1,0 +1,842 @@
+/* Palet Warna */
+:root {
+    --primary-blue: hsl(215, 70%, 55%);
+    --dark-blue: hsl(215, 60%, 35%);   
+    --accent-orange: hsl(30, 80%, 55%);
+    --text-dark: #333;
+    --text-light: #fefefe;
+    --bg-light: #ffffff;
+    --bg-grey: #f4f7f6;
+    --border-color: #e0e0e0;
+    --danger-red: #d9534f;
+    --danger-red-hover: #c9302c;
+    --success-green: #28a745;
+    --success-green-hover: #218838;
+}
+
+/* Reset & Pengaturan Dasar */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ====================================================== */
+/* == STYLING UNTUK HALAMAN ADMIN & DASHBOARD ANGGOTA == */
+/* ====================================================== */
+body:not(.login-body):not(.landing-body) {
+    background-color: var(--dark-blue);
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: var(--bg-light);
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: mainFadeIn 0.5s ease-out forwards;
+}
+@keyframes mainFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Admin & Anggota */
+header {
+    text-align: center;
+    margin-bottom: 0;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 0;
+}
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+}
+.welcome-message { color: var(--text-light); }
+.logout-button {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--danger-red);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.logout-button:hover { 
+    background-color: var(--danger-red-hover); 
+    transform: translateY(-2px);
+}
+.logo-container {
+    margin-bottom: 15px;
+    padding-top: 20px;
+}
+.logo-container a {
+    display: inline-block;
+    line-height: 0;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+.logo-container a:hover {
+    transform: scale(1.05);
+}
+.logo {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+}
+header h1 {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 2.2em;
+    padding-top: 0;
+}
+header h2 {
+    margin: 5px 0 0;
+    font-weight: 300;
+    color: var(--bg-light);
+    font-size: 1.2em;
+    padding-bottom: 25px;
+}
+
+/* === NAVIGASI ADMIN === */
+.admin-nav {
+    background-color: var(--dark-blue);
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 0 20px;
+}
+.admin-nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.admin-nav li {
+    margin: 0;
+}
+.admin-nav a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.admin-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.admin-nav a.active {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom-color: var(--accent-orange);
+    color: #fff;
+}
+
+/* === Tombol-tombol Standar === */
+.btn-primary {
+    padding: 10px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover { 
+    background-color: var(--dark-blue); 
+    transform: translateY(-2px);
+}
+.btn-primary-green,
+.btn-approve {
+    padding: 10px 20px;
+    background-color: var(--success-green);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-primary-green:hover,
+.btn-approve:hover { 
+    background-color: var(--success-green-hover); 
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-secondary:hover { 
+    background-color: #5a6268; 
+    transform: translateY(-2px);
+}
+.btn-edit {
+    padding: 6px 12px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-edit:hover { 
+    background-color: var(--dark-blue); 
+    transform: translateY(-2px);
+}
+.btn-hapus,
+.btn-reject {
+    padding: 6px 12px;
+    background-color: var(--danger-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-hapus:hover,
+.btn-reject:hover { 
+    background-color: var(--danger-red-hover); 
+    transform: translateY(-2px);
+}
+.btn-approve {
+    margin-right: 5px;
+}
+
+/* === Header Halaman Admin === */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.page-header h2 {
+    margin: 0;
+    color: var(--dark-blue);
+}
+
+/* Form Absensi & Laporan */
+.absensi-header {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.absensi-header label { font-weight: 600; color: var(--dark-blue); }
+.absensi-header input[type="date"] {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+/* Tabel Admin */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 8px;
+    table-layout: auto;
+}
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    word-break: break-word;
+}
+th {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+tr {
+    transition: background-color 0.15s ease;
+}
+tr:nth-child(even) { background-color: #fcfcfc; }
+tr:hover { 
+    background-color: #eef8ff;
+}
+.kolom-aksi {
+    width: 150px;
+    text-align: center;
+}
+.rekap-hadir { background-color: #d4edda; color: #155724; }
+.rekap-izin { background-color: #fff3cd; color: #856404; }
+.rekap-sakit { background-color: #cce5ff; color: #004085; }
+.rekap-alfa { background-color: #f8d7da; color: #721c24; }
+.rekap-total { background-color: #e2e3e5; color: #383d41; }
+
+/* === Label Status di Dashboard Anggota (BARU) === */
+.status-label {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.9em;
+}
+.status-hadir { background-color: var(--success-green); }
+.status-izin { background-color: #ffc107; color: var(--text-dark); }
+.status-sakit { background-color: var(--primary-blue); }
+.status-alfa { background-color: var(--danger-red); }
+
+/* Pilihan Radio Button (Absensi) */
+.kolom-kehadiran { width: 280px; text-align: center; }
+.radio-group { display: flex; justify-content: space-around; align-items: center; gap: 10px; }
+.radio-group input[type="radio"] { display: none; }
+.radio-group label {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 6px;
+    cursor: pointer;
+    min-width: 30px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.radio-group input[type="radio"]:checked + label {
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    border-color: var(--accent-orange);
+    box-shadow: 0 2px 8px rgba(var(--accent-orange), 0.3);
+    transform: scale(1.05);
+}
+.radio-group label:hover { 
+    background-color: rgba(var(--primary-blue), 0.1);
+    transform: translateY(-2px);
+}
+
+/* === Kotak Rekap Dashboard Anggota (BARU) === */
+.rekap-container {
+    margin-top: 30px;
+}
+.rekap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+.rekap-box {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #fff;
+}
+.rekap-box span {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+.rekap-hadir { background-color: var(--success-green); }
+.rekap-izin { background-color: #ffc107; color: var(--text-dark); }
+.rekap-sakit { background-color: var(--primary-blue); }
+.rekap-alfa { background-color: var(--danger-red); }
+
+
+/* Tombol Submit Absensi */
+button[type="submit"] {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 10px auto;
+    padding: 12px 30px;
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(var(--accent-orange), 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+button[type="submit"]:hover {
+    background-color: hsl(30, 90%, 60%);
+    transform: translateY(-2px);
+}
+
+
+/* ====================================================== */
+/* == STYLING MODAL (DIROMBAK TOTAL) == */
+/* ====================================================== */
+.hidden { display: none !important; }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px; /* Padding untuk mobile */
+    box-sizing: border-box;
+    animation: modalOverlayFadeIn 0.3s ease;
+}
+
+/* Konten Modal Split-Screen (BARU) */
+.modal-content {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px; /* Modal lebih lebar */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: modalContentFadeIn 0.3s ease;
+    display: flex; /* Kunci layout split-screen */
+    overflow: hidden; /* Penting untuk border-radius */
+    padding: 0; /* Hapus padding lama */
+}
+
+/* Panel Kiri (Branding) (BARU) */
+.modal-branding {
+    width: 40%;
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.modal-branding .logo {
+    max-width: 100px; /* Logo di modal */
+    margin-bottom: 20px;
+}
+.modal-branding h3 {
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+.modal-branding p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Panel Kanan (Form) (BARU) */
+.modal-form-content {
+    width: 60%;
+    background-color: var(--bg-light);
+    box-sizing: border-box;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px 15px 30px;
+    border-bottom: none; /* Hapus border header */
+}
+.modal-header h3 { 
+    margin: 0; 
+    color: var(--dark-blue);
+    font-size: 1.6em;
+}
+.tutup-modal {
+    font-size: 2em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.tutup-modal:hover { color: var(--danger-red); }
+
+.modal-body {
+    padding: 0 30px 20px 30px; /* Atur padding body */
+}
+.modal-body p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Form di dalam Modal */
+.modal-body .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.modal-body .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+.modal-body .input-group input[type="text"],
+.modal-body .input-group input[type="email"],
+.modal-body .input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.modal-body .input-group input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 30px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-grey);
+    border-bottom-right-radius: 12px; /* Hanya di sisi kanan */
+}
+
+/* Error message di modal pendaftaran */
+.modal-body .error-message {
+    color: var(--danger-red);
+    font-weight: 500;
+    font-size: 0.9em;
+    height: 1.2em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+@keyframes modalOverlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes modalContentFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* ====================================================== */
+/* == STYLING UNTUK HALAMAN LOGIN (login.html) == */
+/* ====================================================== */
+.login-body {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0; 
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: modalContentFadeIn 0.5s ease-out forwards;
+}
+.logo-container-login { margin-bottom: 20px; }
+.logo-container-login .logo {
+    max-width: 100px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+.login-container h2 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.8em; }
+.login-container p { margin-bottom: 25px; color: #666; }
+
+/* === Role Selector (BARU) === */
+.role-selector {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.role-selector input[type="radio"] {
+    display: none; /* Sembunyikan radio button */
+}
+.role-label {
+    flex: 1; /* Bagi rata */
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.role-label:first-of-type {
+    border-right: 1px solid var(--border-color);
+}
+.role-selector input[type="radio"]:checked + .role-label {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+}
+
+
+.login-container .input-group { margin-bottom: 20px; text-align: left; }
+.login-container .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+.login-container .input-group input[type="text"],
+.login-container .input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.login-container .input-group input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.1);
+}
+.login-button { 
+    width: 100%; 
+    margin: 10px 0 15px 0; 
+    background-color: var(--accent-orange); 
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.login-button:hover {
+    background-color: hsl(30, 90%, 60%);
+    transform: translateY(-2px);
+}
+.login-container .error-message { color: var(--danger-red); font-weight: 500; font-size: 0.9em; height: 1.2em; }
+
+
+/* ====================================================== */
+/* == STYLING UNTUK HALAMAN LANDING PAGE (index.html) == */
+/* ====================================================== */
+.landing-body {
+    background-color: var(--bg-light);
+}
+.public-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+.logo-container-public {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-public {
+    max-width: 50px;
+    height: auto;
+}
+.logo-text {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+.top-login-button {
+    padding: 8px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.top-login-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* Konten Landing Page */
+.landing-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    animation: mainFadeIn 0.6s ease-out forwards;
+}
+.hero-section {
+    padding: 60px 0;
+}
+.hero-section h1 {
+    font-size: 2.8em;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+.hero-section h2 {
+    font-size: 1.8em;
+    font-weight: 400;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+.hero-section p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+.hero-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.hero-button {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: var(--accent-orange);
+    color: var(--text-light);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.hero-button:hover {
+    background-color: hsl(30, 90%, 60%);
+    transform: translateY(-2px);
+}
+.hero-button-secondary {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: transparent;
+    color: var(--primary-blue);
+    text-decoration: none;
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.hero-button-secondary:hover {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+}
+
+.info-section {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: var(--bg-grey);
+    border-radius: 12px;
+}
+.landing-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    color: #777;
+    font-size: 0.9em;
+}
+
+
+/* ====================================================== */
+/* == Media Queries Responsif (Berlaku untuk SEMUA) == */
+/* ====================================================== */
+@media (max-width: 768px) {
+    /* Aturan untuk Halaman Admin */
+    main {
+        margin: 15px;
+        padding: 20px;
+    }
+    header h1 { font-size: 1.8em; }
+    header h2 { font-size: 1em; }
+    th, td { padding: 8px 10px; }
+    .absensi-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .absensi-header input[type="date"] {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .radio-group label { padding: 6px 10px; min-width: 25px; }
+    .header-top { flex-direction: column; gap: 10px; }
+    .admin-nav ul { flex-direction: column; text-align: center; }
+    .admin-nav a { border-bottom: 1px solid var(--dark-blue); }
+    .admin-nav a.active { border-bottom-color: var(--accent-orange); }
+    .page-header { flex-direction: column; gap: 15px; }
+    .kolom-aksi { width: auto; }
+    .btn-edit, .btn-hapus, .btn-approve, .btn-reject { width: 100%; margin: 5px 0; }
+    
+    /* Aturan Modal Responsif */
+    .modal-content {
+        flex-direction: column; /* Tumpuk panel form di atas panel branding */
+        max-width: 500px;
+        max-height: 90vh; /* Batasi tinggi */
+        overflow-y: auto; /* Aktifkan scroll jika perlu */
+    }
+    .modal-branding {
+        width: 100%; /* Full width */
+        padding: 25px;
+        border-radius: 12px 12px 0 0; /* Bulat di atas */
+        box-sizing: border-box;
+    }
+    .modal-form-content {
+        width: 100%; /* Full width */
+        border-radius: 0 0 12px 12px; /* Bulat di bawah */
+        box-sizing: border-box;
+    }
+    .modal-header { padding: 20px 25px 10px 25px; }
+    .modal-body { padding: 0 25px 15px 25px; }
+    .modal-footer { padding: 15px 25px; }
+
+
+    /* Aturan untuk Landing Page */
+    .public-header { flex-direction: column; gap: 15px; }
+    .hero-section h1 { font-size: 2.2em; }
+    .hero-section h2 { font-size: 1.5em; }
+    
+    /* Aturan untuk Login */
+    .login-container { padding: 25px; }
+}

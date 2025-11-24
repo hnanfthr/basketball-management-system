@@ -1,0 +1,94 @@
+/* ====================================================== */
+/* == STYLING KHUSUS HALAMAN LOGIN (login.html) == */
+/* ====================================================== */
+
+.login-body {
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0; 
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: modalContentFadeIn 0.5s ease-out forwards;
+}
+.logo-container-login { margin-bottom: 20px; }
+.logo-container-login .logo {
+    max-width: 100px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+}
+.login-container h2 { margin: 0 0 10px 0; color: var(--dark-blue); font-size: 1.8em; }
+.login-container p { margin-bottom: 25px; color: #666; }
+
+/* === Role Selector === */
+.role-selector {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.role-selector input[type="radio"] {
+    display: none;
+}
+.role-label {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    color: #555;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.role-label:first-of-type {
+    border-right: 1px solid var(--border-color);
+}
+.role-selector input[type="radio"]:checked + .role-label {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+}
+
+/* Tombol Login */
+.login-button { 
+    width: 100%; 
+    margin: 10px 0 15px 0; 
+    background-color: var(--accent-orange); 
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.login-button:hover {
+    background-color: hsl(30, 90%, 60%);
+    transform: translateY(-2px);
+}
+.login-container .error-message { 
+    height: 1.2em;
+    margin-top: 0;
+}
+
+/* ====================================================== */
+/* == RESPONSIVE (Khusus Login) == */
+/* ====================================================== */
+@media (max-width: 768px) {
+    .login-container { 
+        padding: 25px; 
+    }
+}

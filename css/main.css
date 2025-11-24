@@ -1,0 +1,389 @@
+/* Palet Warna */
+:root {
+    --primary-blue: hsl(215, 70%, 55%);
+    --dark-blue: hsl(215, 60%, 35%);   
+    --accent-orange: hsl(30, 80%, 55%);
+    --text-dark: #333;
+    --text-light: #fefefe;
+    --bg-light: #ffffff;
+    --bg-grey: #f4f7f6;
+    --border-color: #e0e0e0;
+    --danger-red: #d9534f;
+    --danger-red-hover: #c9302c;
+    --success-green: #28a745;
+    --success-green-hover: #218838;
+}
+
+/* Reset & Pengaturan Dasar */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Layout Konten Utama (Admin & Landing) */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: var(--bg-light);
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ====================================================== */
+/* == KOMPONEN TOMBOL (Reusable) == */
+/* ====================================================== */
+.btn-primary {
+    padding: 10px 20px;
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover { 
+    background-color: var(--dark-blue); 
+    transform: translateY(-2px);
+}
+.btn-primary-green,
+.btn-approve {
+    padding: 10px 20px;
+    background-color: var(--success-green);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-primary-green:hover,
+.btn-approve:hover { 
+    background-color: var(--success-green-hover); 
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-secondary:hover { 
+    background-color: #5a6268; 
+    transform: translateY(-2px);
+}
+.btn-edit {
+    padding: 6px 12px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-edit:hover { 
+    background-color: var(--dark-blue); 
+    transform: translateY(-2px);
+}
+.btn-hapus,
+.btn-reject {
+    padding: 6px 12px;
+    background-color: var(--danger-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-hapus:hover,
+.btn-reject:hover { 
+    background-color: var(--danger-red-hover); 
+    transform: translateY(-2px);
+}
+
+.btn-reset {
+    padding: 6px 12px;
+    background-color: #f0ad4e; /* Warna oranye/kuning */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-reset:hover { 
+    background-color: #ec971f; 
+    transform: translateY(-2px);
+}
+
+.btn-approve {
+    margin-right: 5px;
+}
+
+/* ====================================================== */
+/* == KOMPONEN TABEL (Reusable) == */
+/* ====================================================== */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 8px;
+    table-layout: auto;
+}
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    word-break: break-word;
+    
+    /* (FIX) Tambahkan ini untuk mencegah teks header patah */
+    white-space: nowrap; 
+}
+th {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+th:first-child { border-top-left-radius: 8px; }
+th:last-child { border-top-right-radius: 8px; }
+tr {
+    transition: background-color 0.15s ease;
+}
+tr:nth-child(even) { background-color: #fcfcfc; }
+tr:hover { 
+    background-color: #eef8ff;
+}
+.kolom-aksi {
+    width: 150px;
+    text-align: center;
+}
+/* Kolom rekap di laporan */
+.rekap-hadir { background-color: #d4edda; color: #155724; }
+.rekap-izin { background-color: #fff3cd; color: #856404; }
+.rekap-sakit { background-color: #cce5ff; color: #004085; }
+.rekap-alfa { background-color: #f8d7da; color: #721c24; }
+.rekap-total { background-color: #e2e3e5; color: #383d41; }
+
+/* ====================================================== */
+/* == KOMPONEN FORM INPUT (Reusable) == */
+/* ====================================================== */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="file"],
+.input-group input[type="number"],
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.1);
+}
+.input-group small {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+}
+.error-message {
+    color: var(--danger-red);
+    font-weight: 500;
+    font-size: 0.9em;
+    height: 1.2em;
+}
+
+/* ====================================================== */
+/* == KOMPONEN MODAL (Reusable) == */
+/* ====================================================== */
+.hidden { display: none !important; }
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: modalOverlayFadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px; /* Default kotak kecil */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    animation: modalContentFadeIn 0.3s ease;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Modal Split (untuk Edit Anggota) */
+.modal-content.modal-split {
+    max-width: 800px;
+    display: flex;
+}
+.modal-branding {
+    width: 320px;
+    flex-shrink: 0;
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 40px;
+    text-align: center;
+    display: none; /* Sembunyikan di versi simpel */
+}
+.modal-form-content {
+    flex: 1;
+    background-color: var(--bg-light);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+/* End Split Screen */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+.modal-header h3 { 
+    margin: 0; 
+    color: var(--dark-blue);
+    font-size: 1.6em;
+}
+.tutup-modal {
+    font-size: 2em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.tutup-modal:hover { color: var(--danger-red); }
+
+.modal-body {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+.modal-body p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.modal-body .error-message {
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-grey);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.modal-split .modal-footer {
+    border-bottom-left-radius: 0;
+}
+
+
+/* ====================================================== */
+/* == KEYFRAMES (Reusable) == */
+/* ====================================================== */
+@keyframes modalOverlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes modalContentFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes mainFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====================================================== */
+/* == RESPONSIVE (Hanya untuk Komponen) == */
+/* ====================================================== */
+@media (max-width: 768px) {
+    /* Aturan Tabel Responsif */
+    th, td { padding: 8px 10px; }
+    .kolom-aksi { width: auto; }
+    .btn-edit, .btn-hapus, .btn-approve, .btn-reject, .btn-reset { width: 100%; margin: 5px 0; }
+    
+    /* Aturan Modal Split Responsif */
+    .modal-content.modal-split {
+        flex-direction: column;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .modal-branding {
+        width: 100%;
+        padding: 25px;
+        border-radius: 12px 12px 0 0;
+        box-sizing: border-box;
+        display: none; /* Sembunyikan di mobile */
+    }
+    .modal-form-content {
+        width: 100%;
+        border-radius: 12px; /* Full radius di mobile */
+    }
+    .modal-split .modal-footer {
+        border-bottom-left-radius: 12px;
+    }
+}
